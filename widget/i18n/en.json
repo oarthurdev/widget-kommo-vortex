@@ -1,0 +1,26 @@
+{
+  "widget": {
+    "name": "Tag Analytics",
+    "description": "Displays lead distribution by active tags in your Kommo account",
+    "short_description": "Tag-based lead analytics widget"
+  },
+  "settings": {
+    "backend_url": "Backend URL (e.g., https://your-replit.repl.co)",
+    "api_key": "Kommo API Key",
+    "domain": "Kommo Domain (e.g., yourdomain.kommo.com)",
+    "refresh_interval": "Refresh Interval (seconds, optional)",
+    "title": "Tag Analytics Settings",
+    "save": "Save Settings",
+    "cancel": "Cancel"
+  },
+  "dashboard": {
+    "title": "TAG",
+    "total_tags": "Total Active Tags",
+    "leads": "leads",
+    "others": "Others",
+    "loading": "Loading tag data...",
+    "error": "Error loading tags. Please check your settings.",
+    "no_tags": "No active tags found",
+    "refresh": "Refresh Data"
+  }
+}

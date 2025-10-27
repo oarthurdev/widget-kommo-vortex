@@ -1,0 +1,45 @@
+{
+  "widget": {
+    "name": "widget.name",
+    "description": "widget.description",
+    "short_description": "widget.short_description",
+    "version": "1.0.0",
+    "interface_version": 2,
+    "init_once": false,
+    "locale": ["en", "pt"],
+    "installation": true,
+    "support": {
+      "link": "https://www.kommo.com/support",
+      "email": "support@kommo.com"
+    }
+  },
+  "locations": [
+    "lcard-0",
+    "ccard-0",
+    "comcard-0",
+    "settings",
+    "card_sdk"
+  ],
+  "settings": {
+    "backend_url": {
+      "name": "settings.backend_url",
+      "type": "text",
+      "required": true
+    },
+    "api_key": {
+      "name": "settings.api_key",
+      "type": "text",
+      "required": true
+    },
+    "domain": {
+      "name": "settings.domain",
+      "type": "text",
+      "required": true
+    },
+    "refresh_interval": {
+      "name": "settings.refresh_interval",
+      "type": "text",
+      "required": false
+    }
+  }
+}

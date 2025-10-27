@@ -1,0 +1,26 @@
+{
+  "widget": {
+    "name": "Análise de Tags",
+    "description": "Exibe a distribuição de leads por tags ativas na sua conta Kommo",
+    "short_description": "Widget de análise de leads por tags"
+  },
+  "settings": {
+    "backend_url": "URL do Backend (ex: https://seu-replit.repl.co)",
+    "api_key": "Chave API Kommo",
+    "domain": "Domínio Kommo (ex: seudominio.kommo.com)",
+    "refresh_interval": "Intervalo de Atualização (segundos, opcional)",
+    "title": "Configurações de Análise de Tags",
+    "save": "Salvar Configurações",
+    "cancel": "Cancelar"
+  },
+  "dashboard": {
+    "title": "TAG",
+    "total_tags": "Total de Tags Ativas",
+    "leads": "leads",
+    "others": "Outros",
+    "loading": "Carregando dados de tags...",
+    "error": "Erro ao carregar tags. Verifique suas configurações.",
+    "no_tags": "Nenhuma tag ativa encontrada",
+    "refresh": "Atualizar Dados"
+  }
+}
