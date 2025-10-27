@@ -75,7 +75,6 @@ export class KommoService {
       const filterParams: any = {
         with: 'tags',
         limit: 250,
-        page: page,
       };
 
       console.log('Applying filters:', filters);
@@ -127,22 +126,30 @@ export class KommoService {
         filterParams['filter[created_at][to]'] = Math.floor(now.getTime() / 1000);
       }
 
-      console.log('Fetching leads with filters:', filterParams);
+      console.log('Starting to fetch all leads...');
 
       while (hasMore && leads.length < limit) {
         filterParams.page = page;
+        console.log(`Fetching page ${page} with params:`, filterParams);
+        
         const response = await this.apiClient.get('/api/v4/leads', { params: filterParams });
 
         const pageLeads = response.data._embedded?.leads || [];
         leads.push(...pageLeads);
 
+        // Continua enquanto a página atual retornou 250 leads (máximo por página)
         hasMore = pageLeads.length === 250;
         page++;
         
         console.log(`Fetched page ${page - 1}: ${pageLeads.length} leads (total so far: ${leads.length})`);
+        
+        // Pequeno delay para evitar rate limiting
+        if (hasMore) {
+          await new Promise(resolve => setTimeout(resolve, 100));
+        }
       }
 
-      console.log(`Fetched total of ${leads.length} leads from Kommo`);
+      console.log(`Successfully fetched total of ${leads.length} leads from Kommo`);
       return leads;
     } catch (error: any) {
       console.error('Error fetching leads from Kommo:', error.message);
