@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { useQuery } from "@tanstack/react-query";
 
@@ -83,7 +82,7 @@ export default function Preview() {
                           {tag.name}
                         </span>
                         <span className="text-white text-sm whitespace-nowrap">
-                          <strong>{tag.leadCount}</strong> leads <span className="text-gray-500">(R$0)</span>
+                          <strong>{tag.leadCount}</strong> leads
                         </span>
                       </div>
                       <div className="flex items-center gap-2">
