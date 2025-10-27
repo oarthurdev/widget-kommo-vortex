@@ -37,11 +37,11 @@ export default function Preview() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4" style={{ backgroundColor: "#4A90E2" }}>
+    <div className="min-h-screen flex items-center justify-center p-4" style={{ backgroundColor: "rgba(12, 37, 61, 0.95)" }}>
       <Card
         className="w-full max-w-md border-none"
         style={{
-          backgroundColor: "rgba(12, 37, 61, .95)",
+          backgroundColor: "transparent",
           borderRadius: "8px",
         }}
       >
