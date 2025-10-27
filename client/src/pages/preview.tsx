@@ -37,7 +37,7 @@ export default function Preview() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
+    <div className="min-h-screen flex items-center justify-center p-4" style={{ backgroundColor: "#4A90E2" }}>
       <Card
         className="w-full max-w-md border-none"
         style={{
