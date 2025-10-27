@@ -37,17 +37,11 @@ export default function Preview() {
   };
 
   return (
-    <div
-      className="min-h-screen flex items-center justify-center p-4"
-      style={{
-        background: "linear-gradient(135deg, #0a1929 0%, #1a2942 100%)",
-      }}
-    >
+    <div className="min-h-screen flex items-center justify-center p-4">
       <Card
-        className="w-full max-w-md"
+        className="w-full max-w-md border-none"
         style={{
           backgroundColor: "#0d2137",
-          border: "none",
           borderRadius: "8px",
         }}
       >
