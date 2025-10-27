@@ -41,7 +41,7 @@ export default function Preview() {
       <Card
         className="w-full max-w-md border-none"
         style={{
-          backgroundColor: "#0d2137",
+          backgroundColor: "rgba(12, 37, 61, .95)",
           borderRadius: "8px",
         }}
       >
