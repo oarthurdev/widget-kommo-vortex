@@ -51,42 +51,42 @@ export default function Preview() {
           borderRadius: "8px",
         }}
       >
-        <CardContent className="p-6">
+        <CardContent className="p-4">
           {error ? (
-            <div className="text-red-400 text-center py-8">
+            <div className="text-red-400 text-center py-4">
               Erro ao carregar dados
             </div>
           ) : data ? (
             <div>
               {/* Header */}
-              <div className="mb-6 pb-4 border-b border-gray-700">
-                <div className="text-gray-400 text-xs font-semibold uppercase tracking-wider mb-2">
+              <div className="mb-3 pb-2 border-b border-gray-700">
+                <div className="text-gray-400 text-[10px] font-semibold uppercase tracking-wider mb-1">
                   TAG
                 </div>
-                <div className="text-[#7B68EE] text-6xl font-bold">
+                <div className="text-[#7B68EE] text-4xl font-bold">
                   {data.totalTags}
                 </div>
               </div>
 
               {/* Tag List */}
-              <div className="space-y-4">
+              <div className="space-y-2">
                 {data.tags.map((tag, index) => {
                   const color = tag.color || getTagColor(index);
                   return (
-                    <div key={tag.id} className="space-y-2">
-                      <div className="flex items-center justify-between gap-3">
+                    <div key={tag.id} className="space-y-1">
+                      <div className="flex items-center justify-between gap-2">
                         <span
-                          className="px-3 py-1 rounded text-sm font-medium text-gray-900 whitespace-nowrap"
+                          className="px-2 py-0.5 rounded text-xs font-medium text-gray-900 whitespace-nowrap"
                           style={{ backgroundColor: color }}
                         >
                           {tag.name}
                         </span>
-                        <span className="text-white text-sm whitespace-nowrap">
+                        <span className="text-white text-xs whitespace-nowrap">
                           <strong>{tag.leadCount}</strong> leads
                         </span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <div className="flex-1 h-2 bg-gray-800 rounded-sm overflow-hidden">
+                        <div className="flex-1 h-1.5 bg-gray-800 rounded-sm overflow-hidden">
                           <div
                             className="h-full transition-all duration-300"
                             style={{
@@ -102,7 +102,7 @@ export default function Preview() {
 
                 {/* Others */}
                 {data.othersCount > 0 && (
-                  <div className="text-white text-sm pt-2 border-t border-gray-700 mt-4">
+                  <div className="text-white text-xs pt-2 border-t border-gray-700 mt-2">
                     Outros <strong>{data.othersCount}</strong>
                   </div>
                 )}
