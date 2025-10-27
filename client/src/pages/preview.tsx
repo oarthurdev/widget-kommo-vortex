@@ -33,12 +33,12 @@ export default function Preview() {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4" 
-         style={{ background: 'linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%)' }}>
+         style={{ background: 'linear-gradient(135deg, #0a1929 0%, #1a2942 100%)' }}>
       <Card className="w-full max-w-md" 
             style={{ 
-              backgroundColor: '#1a2942',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              borderRadius: '12px'
+              backgroundColor: '#0d2137',
+              border: 'none',
+              borderRadius: '8px'
             }}>
         <CardContent className="p-6">
           {error ? (
@@ -48,36 +48,36 @@ export default function Preview() {
           ) : data ? (
             <div>
               {/* Header */}
-              <div className="mb-6">
-                <div className="text-white text-sm font-semibold uppercase tracking-wide mb-2">
+              <div className="mb-8 pb-6 border-b border-gray-700">
+                <div className="text-gray-400 text-xs font-semibold uppercase tracking-wider mb-2">
                   TAG
                 </div>
-                <div className="text-blue-400 text-6xl font-bold">
+                <div className="text-[#7B68EE] text-7xl font-bold">
                   {data.totalTags}
                 </div>
               </div>
 
               {/* Tag List */}
-              <div className="space-y-4">
+              <div className="space-y-6">
                 {data.tags.map((tag, index) => {
                   const color = tag.color || getTagColor(index);
                   return (
                     <div key={tag.id} className="space-y-2">
-                      <div className="flex items-center justify-between">
+                      <div className="flex items-center justify-between gap-3">
                         <span 
-                          className="px-3 py-1 rounded text-sm font-medium text-gray-900"
+                          className="px-3 py-1.5 rounded text-sm font-medium text-gray-900 whitespace-nowrap"
                           style={{ backgroundColor: color }}
                         >
                           {tag.name}
                         </span>
-                        <span className="text-white text-sm">
-                          <strong>{tag.leadCount}</strong> leads
+                        <span className="text-white text-sm whitespace-nowrap">
+                          <strong>{tag.leadCount}</strong> leads <span className="text-gray-500">(R$0)</span>
                         </span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <div className="flex-1 h-2 bg-gray-700 rounded-full overflow-hidden">
+                        <div className="flex-1 h-2 bg-gray-800 rounded-sm overflow-hidden">
                           <div 
-                            className="h-full rounded-full transition-all duration-300"
+                            className="h-full transition-all duration-300"
                             style={{ 
                               width: `${tag.percentage}%`,
                               backgroundColor: color
@@ -90,11 +90,9 @@ export default function Preview() {
                 })}
 
                 {/* Others */}
-                {data.othersCount > 0 && (
-                  <div className="text-white text-sm pt-2">
-                    Outros <strong>{data.othersCount}</strong>
-                  </div>
-                )}
+                <div className="text-white text-sm pt-2 border-t border-gray-700 mt-4">
+                  Outros <strong>{data.othersCount}</strong>
+                </div>
               </div>
             </div>
           ) : null}

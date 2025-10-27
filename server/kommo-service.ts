@@ -64,7 +64,7 @@ export class KommoService {
    * Fetch all leads with their tags
    */
   async getLeads(
-    limit: number = 250,
+    limit: number = Infinity,
     filters?: { period?: string; type?: string; dateFrom?: string; dateTo?: string }
   ): Promise<KommoLead[]> {
     try {
@@ -74,7 +74,7 @@ export class KommoService {
 
       const filterParams: any = {
         with: 'tags',
-        limit: 50,
+        limit: 250,
         page: page,
       };
 
@@ -136,8 +136,10 @@ export class KommoService {
         const pageLeads = response.data._embedded?.leads || [];
         leads.push(...pageLeads);
 
-        hasMore = pageLeads.length === 50;
+        hasMore = pageLeads.length === 250;
         page++;
+        
+        console.log(`Fetched page ${page - 1}: ${pageLeads.length} leads (total so far: ${leads.length})`);
       }
 
       console.log(`Fetched total of ${leads.length} leads from Kommo`);
@@ -156,7 +158,7 @@ export class KommoService {
       // Fetch tags and leads in parallel
       const [allTags, allLeads] = await Promise.all([
         this.getTags(),
-        this.getLeads(250, filters)
+        this.getLeads(Infinity, filters)
       ]);
 
       console.log(`Fetched ${allTags.length} tags and ${allLeads.length} leads`);
