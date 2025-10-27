@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { useQuery } from "@tanstack/react-query";
 
@@ -19,27 +18,39 @@ interface TagStatistics {
 
 export default function Preview() {
   const { data, error } = useQuery<TagStatistics>({
-    queryKey: ['/api/kommo/tags/statistics'],
+    queryKey: ["/api/kommo/tags/statistics"],
     refetchInterval: 30000, // Atualiza a cada 30 segundos
   });
 
   const getTagColor = (index: number) => {
     const colors = [
-      '#FDB022', '#F5A623', '#7B8CDE', '#A3D977',
-      '#98A2B3', '#FF6B9D', '#50C8FF', '#FFD93D'
+      "#FDB022",
+      "#F5A623",
+      "#7B8CDE",
+      "#A3D977",
+      "#98A2B3",
+      "#FF6B9D",
+      "#50C8FF",
+      "#FFD93D",
     ];
     return colors[index % colors.length];
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4" 
-         style={{ background: 'linear-gradient(135deg, #0a1929 0%, #1a2942 100%)' }}>
-      <Card className="w-full max-w-md" 
-            style={{ 
-              backgroundColor: '#0d2137',
-              border: 'none',
-              borderRadius: '8px'
-            }}>
+    <div
+      className="min-h-screen flex items-center justify-center p-4"
+      style={{
+        background: "linear-gradient(135deg, #0a1929 0%, #1a2942 100%)",
+      }}
+    >
+      <Card
+        className="w-full max-w-md"
+        style={{
+          backgroundColor: "#0d2137",
+          border: "none",
+          borderRadius: "8px",
+        }}
+      >
         <CardContent className="p-6">
           {error ? (
             <div className="text-red-400 text-center py-8">
@@ -64,23 +75,23 @@ export default function Preview() {
                   return (
                     <div key={tag.id} className="space-y-2">
                       <div className="flex items-center justify-between gap-3">
-                        <span 
+                        <span
                           className="px-3 py-1.5 rounded text-sm font-medium text-gray-900 whitespace-nowrap"
                           style={{ backgroundColor: color }}
                         >
                           {tag.name}
                         </span>
                         <span className="text-white text-sm whitespace-nowrap">
-                          <strong>{tag.leadCount}</strong> leads <span className="text-gray-500">(R$0)</span>
+                          <strong>{tag.leadCount}</strong> leads
                         </span>
                       </div>
                       <div className="flex items-center gap-2">
                         <div className="flex-1 h-2 bg-gray-800 rounded-sm overflow-hidden">
-                          <div 
+                          <div
                             className="h-full transition-all duration-300"
-                            style={{ 
+                            style={{
                               width: `${tag.percentage}%`,
-                              backgroundColor: color
+                              backgroundColor: color,
                             }}
                           />
                         </div>
